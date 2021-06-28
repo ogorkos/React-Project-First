@@ -1,8 +1,11 @@
+import e from "cors";
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
  
 class Navbar extends Component {
-  state = {};
+  state = {isBoxVisible:false};
+
+  
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light shadow-sm">
@@ -41,7 +44,7 @@ class Navbar extends Component {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-item nav-link" to="/signup">
+                <NavLink className="nav-item nav-link" to="/signup" >
                   Signup
                 </NavLink>
               </li>

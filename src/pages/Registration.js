@@ -4,10 +4,17 @@ import Joi from "joi-browser";
 import Form from "./common/Form";
 import http from '../services/httpService'
 import {apiUrl} from "../config.json"
+import { toast } from "react-toastify";
+import {withRouter} from 'react-router'
+
 
 class Registration extends Form {
+  constructor(props) {
+    super(props)
+  }
   state = {
-    data: { email: "", password: "", name: "" },
+    // data: { email: "", password: "", name: "" },
+    data: { email: "", password: "", username: "" },
     errors: {}
   };
  
@@ -20,25 +27,36 @@ class Registration extends Form {
       .required()
       .min(6)
       .label("Password"),
-    name: Joi.string()
+    // name: Joi.string()
+    username: Joi.string()
       .required()
       .min(2)
       .label("Name")
   };
  
   doSubmit = async () => {
+    
     const { data } = this.state;
     data.biz = false;
     console.log(data);
-    try {
-      await http.post(`${apiUrl}/users`, data);
-      this.props.history.push("/home");     
-    } catch (ex) {
+    try {      
+      // const URL = `${apiUrl}/users`
+      const URL = `${apiUrl}/users/create`
+      console.log(URL);
+      await http.post(URL, data);
+      toast("A new acoount is opened");
+      // await http.post('http://localhost:3900/api/users', data);
+      this.props.history.replace("/home");     
+    } catch (ex) {      
       if (ex.response && ex.response.status === 400) {
+        toast("Error - Email is taken");
         console.log(ex);
         this.setState({ errors: { email: "Email is taken" } });
-      }
+      } else toast("Error");
     }
+    // setTimeout(() => {
+    //   this.props.history.replace("/home");           
+    // }, 2000);
   };
   render() {
     return (
@@ -50,15 +68,15 @@ class Registration extends Form {
             <form onSubmit={this.handleSubmit} autoComplete="off" method="POST">
               {this.renderInput("email", "Email", "email")}
               {this.renderInput("password", "Password", "password")}
-              {this.renderInput("name", "Name")}
+              {this.renderInput("username", "Name")}
+              {/* {this.renderInput("name", "Name")} */}
               {this.renderButton("Signup")}
             </form>
           </div>
         </div>
-
       </div>
     );
   }
 }
 
-export default Registration;
+export default withRouter(Registration);

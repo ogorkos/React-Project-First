@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
 import Input from "./Input";
+import {withRouter} from 'react-router'
  
 class Form extends Component {
+  constructor(props) {
+    super(props)
+ }
   state = {
     data: {},
     errors: {}

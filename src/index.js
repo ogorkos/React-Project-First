@@ -12,7 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap";
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter >
     <App />
   </BrowserRouter>,
   document.getElementById('root')
