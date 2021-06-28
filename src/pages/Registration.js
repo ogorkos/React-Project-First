@@ -31,7 +31,8 @@ class Registration extends Form {
     username: Joi.string()
       .required()
       .min(2)
-      .label("Name")
+      .label("Name"),
+    biz: Joi.boolean().valid(false)
   };
  
   doSubmit = async () => {
@@ -42,9 +43,9 @@ class Registration extends Form {
     try {      
       // const URL = `${apiUrl}/users`
       const URL = `${apiUrl}/users/create`
-      console.log(URL);
       await http.post(URL, data);
       toast("A new acoount is opened");
+      this.setState({ errors: {} });
       // await http.post('http://localhost:3900/api/users', data);
       this.props.history.replace("/home");     
     } catch (ex) {      
