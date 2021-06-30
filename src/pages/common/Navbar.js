@@ -1,14 +1,12 @@
-import e from "cors";
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
  
 class Navbar extends Component {
   state = {isBoxVisible:false};
-
   
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light shadow-sm">
+      <nav className="navbar navbar-expand-md navbar-light shadow-sm">
         <div className="container">
           <Link className="nav-item nav-link" to="/home">
             Real App

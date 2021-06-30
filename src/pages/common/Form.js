@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
 import Input from "./Input";
-import {withRouter} from 'react-router'
  
 class Form extends Component {
-  constructor(props) {
-    super(props)
- }
+  
   state = {
     data: {},
     errors: {}
@@ -20,13 +17,14 @@ class Form extends Component {
     const errors = {};
     for (let item of error.details) {
       errors[item.path[0]] = item.message;
+      return errors;
     }    
-    return errors;
   };
  
   validateProperty = ({ name, value }) => {
     const obj = { [name]: value };
     const schema = { [name]: this.schema[name] };
+    // console.log( Joi.validate(obj, schema));
     const { error } = Joi.validate(obj, schema);
     return error ? error.details[0].message : null;
   };
@@ -65,6 +63,9 @@ class Form extends Component {
  
     return (
       <Input
+        // onBlur={(e) => {
+        //   console.log('Пропал фокус с поля ввода');
+        // }}
         type={type}
         name={name}
         value={data[name]}
