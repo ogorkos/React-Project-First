@@ -1,3 +1,13 @@
+@import "../node_modules/@fortawesome/fontawesome-free/css/fontawesome";
+@import "../node_modules/@fortawesome/fontawesome-free/css/regular";
+
+body{
+  position: relative;
+}
+.fa,.fas,.far,.fal,.fab {
+  font-family: "Font Awesome 5 Free";
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +45,28 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.card{
+  width:20rem;
+}
+.card-body{
+  padding: 10px !important;
+}
+
+.obj-fit{
+  object-fit:contain;
+  width: 100px;
+  height: 80px;
+}
+.my-footer {
+  background-color: rgb(253, 252, 235);
+  
+}
+.minimheight{
+  min-height: 100vh;
+}
+.shadows{
+  box-shadow: rgba(50, 50, 93, 0.35) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  
 }

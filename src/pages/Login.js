@@ -4,7 +4,7 @@ import Form from "./common/Form";
 import PageTitle from "./common/PageTitle";
 import userService from "../services/userService"
 import { toast } from "react-toastify";
-
+import { Redirect } from "react-router-dom";
 
 class Login extends Form {
   state = {
@@ -21,7 +21,7 @@ class Login extends Form {
     const { email, password } = this.state.data;
     try {
       await userService.login(email, password);
-      // window.location = "/";
+      window.location = "/my-cards";
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         this.setState({ errors: { email: ex.response.data } });
@@ -30,6 +30,8 @@ class Login extends Form {
     }  };
 
   render() {
+    if (userService.getCurrentUser()) return <Redirect to="/" />;
+
     return (
       <div className="container">
         <PageTitle titleText="Signin" />
@@ -39,7 +41,7 @@ class Login extends Form {
         <div className="row">
           <div className="col-lg-6">
             <form onSubmit={this.handleSubmit} autoComplete="off" method="POST">
-              {this.renderInput("email", "Email", "email")}
+              {this.renderInput("email", "Email", "email", "focused")}
               {this.renderInput("password", "Password", "password")}
               {this.renderButton("Signin")}
             </form>

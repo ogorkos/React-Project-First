@@ -2,9 +2,11 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="footer fixed-bottom" >
-      <div className="row justify-content-center align-items-center">
-        <h6>Footer</h6>
+    <div className=" mt-4 p-2 pb-0 my-footer" >
+      <div >
+        <p className="text-center m-0" style={{fontSize:14}}>Created by  
+          <b> Ogorodnijchuk Konstantin</b>
+        </p>      
       </div>
     </div>
   );

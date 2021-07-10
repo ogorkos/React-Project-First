@@ -6,6 +6,8 @@ import http from "../services/httpService";
 import { apiUrl } from "../config.json";
 import { toast } from "react-toastify";
 import { withRouter } from "react-router";
+import userService from "../services/userService"
+import { Redirect } from "react-router-dom";
 
 class Registration extends Form {
   state = {
@@ -48,6 +50,8 @@ class Registration extends Form {
     // }, 2000);
   };
   render() {
+    if (userService.getCurrentUser()) return <Redirect to="/" />;
+
     return (
       <div className="container">
         <PageTitle titleText="Signup" />
@@ -57,7 +61,7 @@ class Registration extends Form {
         <div className="row">
           <div className="col-lg-6">
             <form onSubmit={this.handleSubmit} autoComplete="off" method="POST">
-              {this.renderInput("email", "Email", "email")}
+              {this.renderInput("email", "Email", "email", "focused")}
               {this.renderInput("password", "Password", "password")}
               {this.renderInput("username", "Name")}
               {/* {this.renderInput("name", "Name")} */}

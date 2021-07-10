@@ -1,6 +1,10 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-
+import {getJwt} from "./userService";
+ 
+ 
+axios.defaults.headers.common["token"] = getJwt();
+// console.log('token - ', getJwt());
 
 axios.interceptors.response.use(null, error => {
   const expectedError = error.response && error.response.status >= 403;

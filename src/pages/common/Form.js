@@ -58,7 +58,7 @@ class Form extends Component {
     );
   }
  
-  renderInput(name, label, type = "text") {
+  renderInput(name, label, type = "text", focused='') {
     const { data, errors } = this.state;
  
     return (
@@ -72,6 +72,7 @@ class Form extends Component {
         label={label}
         onChange={this.handleChange}
         error={errors[name]}
+        focused={focused}
       />
     );
   }
