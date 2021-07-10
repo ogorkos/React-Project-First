@@ -29,9 +29,7 @@ class MyCards extends Component {
     window.location = '/create-card'
   }
   favoritesCards(){
-    // console.log('favorites cards');
     this.setState({fav:!this.state.fav});
-    console.log(this.state.fav);
   }
   
   render() {

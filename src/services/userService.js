@@ -31,6 +31,15 @@ export async function login(email, password) {
    localStorage.setItem(tokenKey, data);
    // console.log(data);
 }
- 
-export default {login, getCurrentUser, logout, getJwt};
+
+export async function getDataUser() {
+   const { data } = await http.get(`${apiUrl}/users/me`);
+   // console.log(data);
+   return data
+}
+
+
+const userService = {login, getCurrentUser, logout, getJwt, getDataUser}
+
+export default userService;
 

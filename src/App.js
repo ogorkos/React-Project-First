@@ -18,6 +18,7 @@ import ProtectedRoute from "./pages/common/ProtectedRoute.js"
 import EditCard from './components/EditCard'
 import DeleteCard from './components/DeleteCard'
 import ScrollToTop from './pages/common/ScrollToTop'
+import EditUser from './components/EditUser'
 
 class App extends Component {
   state = {}
@@ -41,9 +42,10 @@ class App extends Component {
               <ProtectedRoute path="/my-cards/delete/:id" component={DeleteCard} biz={true}/>
               <ProtectedRoute path="/my-cards" component={MyCards} biz={true}/>
               <ProtectedRoute path="/create-card" component={CreateCard} biz={true}/>
-            
+              {/* <ProtectedRoute path="/edit-user" component={EditUser} /> */}
               
               <Route path='/about' component={() => <About />}/>            
+              <Route path='/edit-user' component={() => <EditUser />}/>            
               <Route path='/signin' component={() => <Login />}/>            
               <Route path='/signup' component={() => <Registration />}/>  
               <Route path='/logout' component={() => <Logout />}/>            

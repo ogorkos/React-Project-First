@@ -10,7 +10,7 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-md navbar-light shadow-sm">
         <div className="container">
-          <Link className="nav-item nav-link" to="/">
+          <Link className="nav-item nav-link hover-menu" to="/">
             Real App
           </Link>
           <button
@@ -28,13 +28,13 @@ class Navbar extends Component {
 
             <ul className="navbar-nav">
               <li className="nav-item">
-                <NavLink className="nav-item nav-link" to="/about">
+                <NavLink className="nav-item nav-link hover-menu" to="/about">
                   About
                 </NavLink>
               </li>
               {user && user.biz && 
                 <li className="nav-item">
-                  <NavLink className="nav-item nav-link" to="/my-cards">
+                  <NavLink className="nav-item nav-link hover-menu" to="/my-cards">
                     My Cards
                   </NavLink>
                 </li>
@@ -45,17 +45,17 @@ class Navbar extends Component {
               {!user && 
                 <>
                   <li className="nav-item">
-                    <NavLink className="nav-item nav-link" to="/signin">
+                    <NavLink className="nav-item nav-link hover-menu" to="/signin">
                       Signin
                     </NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className="nav-item nav-link" to="/signup" >
+                    <NavLink className="nav-item nav-link hover-menu" to="/signup" >
                       Signup
                     </NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className="nav-item nav-link" to="/biz-signup" >
+                    <NavLink className="nav-item nav-link hover-menu" to="/biz-signup" >
                       Bisiness signup
                     </NavLink>
                   </li>
@@ -64,7 +64,12 @@ class Navbar extends Component {
               {user && 
                 <>
                   <li className="nav-item">
-                    <NavLink className="nav-item nav-link" to="/logout" >
+                    <NavLink className="nav-item nav-link hover-menu" to="/edit-user" >
+                      Profile
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink className="nav-item nav-link hover-menu" to="/logout" >
                       Logout
                     </NavLink>
                   </li>

@@ -5,15 +5,14 @@ import userService from '../services/cardService'
 const Card = ({ card }) => {
 
    const [favorite, setFavorite] = useState(card.favorite === true ? true : false)
-   // const []
 
-   useEffect(()=>{      
-      if (card.favorite != favorite){
+   useEffect(() => {       
+      if (card.favorite !== favorite){
          card.favorite = favorite;
-         console.log(mapToViewModel(card));
+         // console.log(mapToViewModel(card));
          userService.editCard(mapToViewModel(card))
       }
-   },[favorite])
+   },[favorite, card])
 
    const mapToViewModel = (card) => {
       return {
@@ -38,15 +37,15 @@ const Card = ({ card }) => {
                alt={card.bizName}
             />
             </div>
-            <div className="col d-flex justify-content-end align-items-center h-50 ">            
-               <Link to={`/my-cards/edit/${card._id}`}><span className="p-3 pt-1"><i className="far fa-edit"></i></span> </Link>
+            <div className="col d-flex justify-content-end align-items-center h-50 iconsColor" >            
+               <Link to={`/my-cards/edit/${card._id}`}><span className="p-3 pt-1 iconsColor" ><i className="far fa-edit"></i></span> </Link>
                <span>|</span>
                <Link  to={`/my-cards/delete/${card._id}`} className="">
-               <span className="p-3 pt-1"><i className="fas fa-trash-alt"></i></span>
+               <span className="p-3 pt-1 iconsColor"><i className="fas fa-trash-alt"></i></span>
                </Link>
                <span>|</span>
                <span onClick={() => setFavorite(!favorite)} 
-               className="p-3 pt-1"><i className={favorite ? "fas fa-star" : "far fa-star"} ></i></span>                          
+               className="p-3 pt-1 iconsColor" ><i className={favorite ? "fas fa-star" : "far fa-star"} ></i></span>                          
             </div>            
          </div>
         

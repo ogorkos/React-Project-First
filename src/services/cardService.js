@@ -32,4 +32,6 @@ export async function createCard(card){
 
 }
 
-export default {createCard, getMyCards, editCard, getCard, deleteCard};
+const cardService = {createCard, getMyCards, editCard, getCard, deleteCard}
+
+export default cardService;

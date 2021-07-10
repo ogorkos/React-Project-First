@@ -70,3 +70,16 @@ body{
   box-shadow: rgba(50, 50, 93, 0.35) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   
 }
+.iconsColor{
+  color: rgb(255, 202, 27);
+  text-shadow: 1px 1px 0px rgb(199, 150, 15);
+}
+.hover-menu:hover{
+  background-color: rgba(255, 255, 0, 0.521);
+  border-radius: 10px;
+  display: block;
+}
+ul li .active {
+  border-bottom: 1px solid black; 
+  transition: 0.5s ease-in-out; 
+}

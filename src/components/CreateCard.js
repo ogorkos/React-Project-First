@@ -56,6 +56,10 @@ class CreateCard extends Form {
         console.log(error);
      }
   };
+
+  handleCancel = () => {
+    this.props.history.push("/my-cards");
+  };
  
   render() {
     return (
@@ -75,6 +79,12 @@ class CreateCard extends Form {
               {this.renderInput("bizPhone", "Business Phone")}
               {this.renderInput("bizImage", "Business Image")}
               {this.renderButton("Create Card")}
+              <button
+                className="btn btn-secondary ml-2"
+                onClick={this.handleCancel}
+              >
+                Cancel
+              </button>
             </form>
           </div>
         </div>
