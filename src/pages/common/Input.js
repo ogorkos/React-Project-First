@@ -7,7 +7,7 @@ const Input = ({ name, label, error, focused, ...rest }) => {
       
       <label htmlFor={name}>{label}</label>
       
-      <input {...rest} name={name} id={name} className="form-control" autoFocus={focused==='focused' ? true : false} />
+      <input {...rest} name={name} id={name} className="form-control inputFocus" autoFocus={focused==='focused' ? true : false} />
       
       {error && <span className="text-danger">{error}</span>}
     </div>

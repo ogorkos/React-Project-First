@@ -11,7 +11,7 @@ class Navbar extends Component {
       <nav className="navbar navbar-expand-md navbar-light shadow-sm">
         <div className="container">
           <Link className="nav-item nav-link hover-menu" to="/">
-            Real App
+          Home
           </Link>
           <button
             className="navbar-toggler"
